@@ -1,37 +1,50 @@
-# Проект "Simple votings"
+A web application for creating and managing polls.  
 
-### Цель
-Предоставить пользователю сервис, на котором можно быстро создать голосование и собрать мнения пользователей касательно какого-либо вопроса
+---
 
-### Технологический стек:
-- Python 3.12
-- Django 5.1+
-- SQLite
+## Features
 
-### Инструкция по настройке проекта:
-1. Склонировать проект
-2. Открыть проект в PyCharm с наcтройками по умолчанию
-3. Создать виртуальное окружение (через settings -> project "simple votings" -> project interpreter)
-4. Открыть терминал в PyCharm, проверить, что виртуальное окружение активировано.
-5. Обновить pip:
-   ```bash
-   pip install --upgrade pip
-   ```
-6. Установить в виртуальное окружение необходимые пакеты: 
-   ```bash
-   pip install -r requirements.txt
-   ```
+- **Create polls** – users can create custom polls with multiple options  
+- **Vote** – simple voting interface for participants  
+- **Results** – real-time voting results display  
+- **Admin panel** – Django admin interface for managing polls and users  
+- **SQLite database** – lightweight database for development
 
-7. Создать уникальный ключ приложения.  
-   Генерация делается в консоли Python при помощи команд:
-   ```bash
-   python manage.py shell -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
-   ```
-   Далее полученное значение подставляется в соответствующую переменную.
-   Внимание! Без выполнения этого пункта никакие команды далее не запустятся.
+---
 
-7. Синхронизировать структуру базы данных с моделями: 
-   ```bash
-   python manage.py migrate
-   ```
-   
+## Tech Stack
+
+- **Language:** Python 3.12+  
+- **Framework:** Django 5.1+  
+- **Database:** SQLite (development) / PostgreSQL (production-ready)  
+- **Frontend:** HTML, CSS, Django Templates  
+- **Tools:** Git, pip, virtualenv
+
+---
+
+## Build & Run
+
+```bash
+# Clone the repository
+git clone https://github.com/rdmx51-glitch/votings-site.git
+cd votings-site
+
+# Create and activate virtual environment
+python -m venv venv
+venv\Scripts\activate
+
+# Install dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# Generate a secret key
+python manage.py shell -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+
+# Paste the key into settings.py as SECRET_KEY, then run migrations
+python manage.py migrate
+
+# Create a superuser (optional)
+python manage.py createsuperuser
+
+# Run the development server
+python manage.py runserver
